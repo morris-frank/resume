@@ -1,0 +1,75 @@
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\usepackage[sfdefault]{FiraSans}
+
+\moderncvstyle{banking}  % style options are 'casual' (default), 'classic', 'banking', 'oldstyle' and 'fancy'
+\moderncvcolor{green}     % color options 'black', 'blue' (default), 'burgundy', 'green', 'grey', 'orange', 'purple' and 'red'
+\renewcommand{\familydefault}{\sfdefault}  % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+
+\usepackage[scale=0.8]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvheadnamewidth}{10cm}            % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+\usepackage{tabularx}
+
+% personal data
+\name{Maurice}{Frank}
+\title{Resumé}
+\address{Eerste Ringdijkstraat 4}{1097BC Amsterdam}{The Netherlands}
+\phone[mobile]{+31 6 38493722}
+\email{maurice.frank@posteo.de}
+\social[github]{morris-frank}
+
+% bibliography adjustements (only useful if you make citations in your resume, or print a list of publications using BibTeX)
+%   to show numerical labels in the bibliography (default is to show no labels)
+%\makeatletter\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}\makeatother
+\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}
+%   to redefine the bibliography heading string ("Publications")
+%\renewcommand{\refname}{Articles}
+
+\AtEndPreamble{
+    \hypersetup{colorlinks=true, linkcolor=orange, urlcolor=blue}
+}
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+\section{Education}
+\cventry{2018--2020}{M.Sc. Artificial Intelligence}{Universiteit van Amsterdam, Vrije Universiteit Amsterdam}{Amsterdam}{}{\textit{Focus}: Deep Learning, Computer Vision, Machine Learning, Medical Imaging}
+\cventry{2014--2017}{B.Sc. Applied Computer Science}{Universität Heidelberg}{Heidelberg}{\textit{GPA 3.48}}{Specialization in image processing and pattern recognition}
+\cventry{2013--2014}{B.Sc. Physics}{Universität Heidelberg}{Heidelberg}{}{Change of degree after the second semester}
+\cventry{2005--2013}{A levels}{Max-Planck Gymnasium}{Schorndorf}{\textit{B-}}{}
+
+
+\section{Bachelor thesis}
+\cvitem{}{\emph{One-shot detection in art historic images}}
+\cvitem{}{Dr.\ Miguel Bautista Martin, Prof.\ Dr.\ Björn Ommer}
+\cvitem{}{Using a special detector the thesis provides a reverse image search tool here in particular to retrieve art historic images containing a given object from a sample image. (Implemented with Python, Keras, Caffe)}
+
+\section{Languages}
+\cvitemwithcomment{English}{Fluid}{TOEFL ibt 112/120}
+\cvitemwithcomment{German}{Mother tongue}{}
+\cvitemwithcomment{Dutch}{Beginner}{}
+
+\section{Experience}
+\cventry{06/2019--}{Co-Founder}{}{}{}{}
+\cventry{09/2019--12/2019}{Internship Deep Learning for fMRI image analysis}{VUmed}{Amsterdam}{}{}
+\cventry{06/2019--08/2019}{Internship Deep Learning for production control}{BMW Group}{Munich}{}{}
+\cventry{04/2018--08/2018}{Web app development}{Bürgerwerke eG}{Heidelberg}{}{Implementation of a communication and organization web portal in Ruby on Rails}
+\cventry{09/2016--06/2017}{Laboratory administrator}{Alfred-Weber-Institut für Wirtschaftswissenschaften}{Heidelberg}{}{Laboratory for decision experiments (Behaviour Economics)\newline{}Development of server administration software (Django web interface, Rails based administration software)}
+\cventry{08/2016--06/2017}{DTP layouting \& web design}{Universität Heidelberg}{Heidelberg}{}{Design and layouting of print (poster, flyer), web content}
+\cventry{10/2015--02/2016}{Tutor}{University Heidelberg}{Heidelberg}{}{Self-prepared weekly training exercises in practical computer science}
+\cventry{06/2015--}{}{\href{https://collegiumacademicum.de}{Collegium Academicum}}{Heidelberg}{}{Student-founded company for self-organized housing. \textit{Experiences}: founding, lead generation, team-building for startups, building sector}
+
+\section{Skills}
+\cvdoubleitem{Proficient}{Python}{Practiced}{Java, MatLab, Ruby, JS}
+\cvdoubleitem{Deep learning}{PyTorch, Keras, Caffe, TensorFlow}{Data science}{NumPy, SciPy, Pandas, R}
+\cvitem{Systems}{GCP, AWS, Palantir Foundry, (PostGres) SQL}
+\cvitem{Web dev}{Rails (RoR), NodeJS, Django, PHP}
+
+\end{document}
