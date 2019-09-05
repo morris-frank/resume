@@ -1,8 +1,4 @@
-\documentclass[9pt,a4paper]{article}
-\usepackage[sfdefault]{FiraSans}
-
-\usepackage[hidelinks]{hyperref}
-
+\documentclass{article}
 \pagestyle{empty}
 \usepackage{geometry} % Required for adjusting page dimensions and margins
 \geometry{
@@ -16,6 +12,11 @@
 	headsep=0.5cm,
 }
 
+\usepackage[sfdefault]{FiraSans}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xparse}
+\usepackage{fontawesome}
+
 \setlength{\parindent}{0mm}
 
 \usepackage{tikz}
@@ -28,17 +29,12 @@
 	\endgroup%
 }
 
-\usepackage{xparse}
-
-\usepackage{fontawesome} % Required for FontAwesome icons
-
 % Command to output an icon in a black square box with text to the right
 \newcommand{\icon}[3]{% The first parameter is the FontAwesome icon name, the second is the box size and the third is the text
 	\vcenteredhbox{\colorbox{primary}{\makebox(#2, #2){\textcolor{white}{\large\csname fa#1\endcsname}}}}% Icon and box
 	\hspace{0.2cm}% Whitespace
 	\vcenteredhbox{\textcolor{primary}{#3}}% Text
 }
-
 
 % Command to output section title headings
 \newcommand{\cvsect}[1]{
@@ -102,12 +98,12 @@
     \entry{2018--2020}
     {M.Sc. Artificial Intelligence}
     {\href{https://uva.nl}{Universiteit van Amsterdam}, \href{https://vu.nl}{Vrije Universiteit Amsterdam}}
-    {\textit{Focus}: Deep Learning, Computer Vision, Machine Learning, Medical Imaging}
+    {\textit{GPA 8.61/10} \quad \textit{Focus}: Deep Learning, Computer Vision, Machine Learning, Medical Imaging}
 
     \entry{2014--2017}
     {B.Sc. Applied Computer Science}
     {\href{https://www.uni-heidelberg.de/en}{University Heidelberg}}
-    {Specialization in image processing and pattern recognition, \textit{GPA 3.48}}
+    {\textit{GPA 3.48/4}\ \ \quad \textit{Focus}: Image processing and pattern recognition}
 
     \entry{2013--2014}
     {B.Sc. Physics}
@@ -117,7 +113,7 @@
     \entry{2005--2013}
     {A levels}
     {\href{http://www.mpg-online.de/}{Max-Planck Gymnasium, Schorndorf}}
-    {GPA of\textit{B-}}
+    {\textit{GPA B-}}
 \end{entrylist}
 
 \cvsect{Experience}
@@ -125,7 +121,7 @@
     \entry
     {09/2019--\\12/2019}
     {Internship}
-    {\href{https://www.spinozacentre.nl/}{Spinoza Center, Amsterdam}}
+    {\href{https://www.spinozacentre.nl/}{Spinoza Centre for Neuroimaging, Amsterdam}}
     {
         Anaylsis of fMRI data from the Human Connectome Project.\\
         \texttt{Python}\slashsep\texttt{PyTorch}
@@ -136,7 +132,8 @@
     {Internship}
     {\href{https://www.bmwgroup.com}{BMW Group, Munich}}
     {
-        Building statistical models to analyze engine part quality and live fleet monitoring. Building a production ready data visualization app.\\
+        Building statistical models to analyze engine part quality and live fleet monitoring.
+        Building a production ready data visualization app.\\
         \texttt{PySpark}\slashsep\texttt{Palantir Foundry}\slashsep\texttt{Python}\slashsep\texttt{PostgreSQL}\slashsep\texttt{Dash}\slashsep\texttt{Agile development}
     }
 
@@ -154,7 +151,7 @@
     {Laboratory admin}
     {\href{https://www.uni-heidelberg.de/fakultaeten/wiso/awi/index_en.html}{Alfred-Weber-Institute for Economics, Heidelberg}}
     {
-        Behaviour Economics computer lab + Development experiment administration software\\
+        Administrator in the behaviour Economics computer lab. Development of an experiment administration software.\\
         \texttt{Rails}\slashsep\texttt{Ruby}\slashsep\texttt{Python}
     }
 
@@ -163,7 +160,7 @@
     {Teaching Assistant}
     {\href{https://www.uni-heidelberg.de/en}{University Heidelberg}}
     {
-        Self-prepared weekly training classes for course practical computer science\\
+        Self-prepared weekly training classes for course practical computer science.\\
         \texttt{C++}
     }
 
