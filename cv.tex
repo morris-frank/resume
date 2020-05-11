@@ -18,12 +18,13 @@
 \usepackage{xparse}
 
 \usepackage{enumitem}
-\setlist{nosep, left=4pt}
+\setlist{left=4pt, topsep=5pt, partopsep=0pt, parsep=0pt, itemsep=4pt}
 
 \usepackage{multicol}
 \setlength\columnsep{.8cm}
 
 \setlength{\parindent}{0mm}
+\renewcommand{\baselinestretch}{1.1}
 \frenchspacing
 
 \usepackage{tikz}
@@ -53,65 +54,76 @@
 \newcommand*{\cvsect}[1]{
     \vspace{\baselineskip}
     \colorbox{primary}{\textcolor{white}{\MakeUppercase{\textbf{\large #1}}}}%
-    \vspace{0.75\baselineskip}\\%
+    \vspace{0.2\baselineskip}\\%
 }
 
-\WithSuffix\newcommand\cvsect*[1]{\cvsect{#1}\vspace{-0.75\baselineskip}}
+\WithSuffix\newcommand\cvsect*[1]{\cvsect{#1}\vspace{-0.8\baselineskip}}
 
 \newcommand{\entry}[5]{%
     \filbreak%
-    {\large #2}\vspace{0.2\baselineskip}\\%
+    {\large #2}\vspace{0.15\baselineskip}\\%
     \bicon{MapMarker}{#3}\hfill%
     \bicon{Calendar}{#1}\vspace{.5\baselineskip}\\%
     #4\vspace{.5\baselineskip}\\%
-    \ifthenelse{\isempty{#5}}{}{{\texttt{#5}}\vspace{.75\baselineskip}\\}%
+    \ifthenelse{\isempty{#5}}{}{{\texttt{#5}}\vspace{.5\baselineskip}\\}%
 }%
 
 \renewcommand{\|}{\hspace{1.2mm}/\hspace{1.2mm}}
 
 \begin{document}
-\begin{minipage}[t]{0.4\textwidth}
-    \vspace{-\baselineskip}
-    {\Huge\textcolor{gray}{Curriculum Vitae}}\\
+\begin{minipage}[t]{0.45\textwidth}
+    \vspace{-5pt}%
+    {\Huge Maurice Frank}\\
 
-    {\Huge Maurice Frank}
+    {\Huge\textcolor{gray}{Machine learning researcher}}
 \end{minipage}
-\begin{minipage}[t]{.3\textwidth}
+\begin{minipage}[t]{.275\textwidth}
         \icon{MapMarker}{12}{Amsterdam, NL}\\
         \icon{Phone}{12}{\href{tel:0031638493722}{+31 6 38493722}}\\
         \icon{At}{12}{\href{mailto:maurice.frank@posteo.de}{maurice.frank@posteo.de}}\\
 \end{minipage}
-\begin{minipage}[t]{.3\textwidth}
+\begin{minipage}[t]{.275\textwidth}
 	\icon{User}{12}{\href{https://morris-frank.dev}{morris-frank.dev}}\\
     \icon{Github}{12}{\href{https://github.com/morris-frank}{github.com/morris-frank}}\\
     \icon{Linkedin}{12}{\href{https://linkedin.com/in/morris-frank}{linkedin.com/in/morris-frank}}\\
 \end{minipage}
+\vspace{5pt}
 
 \begin{multicols*}{2}
-
 \cvsect{Interests}
-My interests lie in machine, especially deep learning. I am interested in generative modeling and
-    Bayesian methods. Applications to music and sound. Understanding of perception.
+
+I like to hunt creative solutions to challenging problems with the use of machine learning.
+I want my work to have a real positive impact on the world and I favor team-work with enthusiaistic colleagues.
+My current academic interst lies in deep generative modeling and Bayesian methods, VAEs and Flows.
+I am especially intrigued by work on and applications to music and sound as well as a understanding of human perception.
+I have strong theoretical backgrounds on machine learning and a background in physics and mathematics.\\\\
 
 \cvsect{Education}
 \entry{2018 -- 2020}
-{M.Sc. Artificial Intelligence\hfill\textit{\small GPA 8.8/10 \footnotesize{(est)}}}
+{M.Sc. Artificial Intelligence\hfill\textit{\normalsize GPA 8.8/10 \small{(est)}}}
 {\href{https://uva.nl}{Universiteit van Amsterdam}}
-{\begin{itemize}%
-        \item Research focussed degree containing theory and practice of most contemporary topics of AI/ML
-        \item Topics
+{
+    Research degree with most contemporary topics in AI/ML
+    \begin{itemize}%
+        \item Theory and practical implementation of the concepts of machine and deep learning: CNNs, RNNs/LSTMs, VAEs/Flows, GANs, MCMC/sampling, Gaussian process/Baysian modeling, ICA,
+        \item Specialization in topics: Theoretical machine learning, Computer Vision, Reinforcement Learning, NLP, Information theory
     \end{itemize}
-    \textbf{Thesis:} Investigating Bayesian methods for un- and semi-supervised music source separation. Do generative models know what they don't know?\\\\
+    \textbf{Thesis:} Investigating Bayesian methods for un- and semi-supervised music source separation. Do generative models know what they don't know?\\
     \emph{Supervisor:} \href{https://scholar.google.com/citations?user=KNJIRGkAAAAJ}{Maximilian Ilse (AMLab)}, \href{https://scholar.google.com/citations?user=QqfCvsgAAAAJ}{Prof. Efstratios Gavves}
 }
 {}
 
 \entry{2014 -- 2017}
-{B.Sc. Applied Computer Science\hfill\textit{\small GPA 3.48/4}}
+{B.Sc. Applied Computer Science\hfill\textit{\normalsize GPA 3.48/4}}
 {\href{https://uni-heidelberg.de/en}{University Heidelberg}}
 {
-    \textit{Focus}: Image processing and pattern recognition\\
-    \textbf{Thesis:} Using a FCN-ResNet based detector the thesis provides a reverse image search tool here in particular to retrieve art historic images containing an object given by a reference image.\href{https://github.com/morris-frank/ba_latex/blob/master/thesis.pdf}{\bicon{Link}{Read}}\\\\
+    General degree on all topics of Computer Science
+    \begin{itemize}
+        \item Specialization on image processing and pattern recognition: Deep Learning, 3D Computer vision, medical image analysis, fariness in AI
+        \item Courses on Pratical CS, Algorithms, DBMS, Theoretical informatics, Numerical methods and software engineering
+        \item Minor in the basic conepts of Physics
+    \end{itemize}
+    \textbf{Thesis:} Using a FCN-ResNet based detector the thesis provides a reverse image search tool here in particular to retrieve art historic images containing an object given by a reference image.\href{https://github.com/morris-frank/ba_latex/blob/master/thesis.pdf}{\bicon{Link}{Read}}\\
     \emph{Supervisor:} \href{https://scholar.google.com/citations?user=ZrRs-qoAAAAJ}{Dr.\ Miguel Bautista Martin}, \href{https://hci.iwr.uni-heidelberg.de/Staff/bommer}{Prof.\ Dr.\ Björn Ommer}
 }
 {}
@@ -119,7 +131,7 @@ My interests lie in machine, especially deep learning. I am interested in genera
 \entry{2013 -- 2014}
 {B.Sc. Physics}
 {\href{https://uni-heidelberg.de/en}{University Heidelberg}}
-{Change of degree after the second semester, kept as minor studies}
+{Change of degree after the first year, kept as minor studies.}
 {}
 
 \cvsect{Experience}
@@ -133,13 +145,13 @@ My interests lie in machine, especially deep learning. I am interested in genera
         \item Information Retrieval
         \item Fairness, Accountability, Confidentiality and Transparency in AI
     \end{itemize}
-    teaching n stuff
+    Each teaching tutorial sessions, correcting course work and support students in finishing scientific work and writing.
 }
 {Python{\|}PyTorch}
 
 \entry%
 {06/2019 -- 08/2019}
-{Internship --- AI for production control}
+{Internship --- ML for production quality control}
 {\href{https://bmwgroup.com}{BMW Group, Munich}}
 {
     Worked within the engine development department.
@@ -153,25 +165,29 @@ My interests lie in machine, especially deep learning. I am interested in genera
 {Full-stack Web developer}
 {\href{https://buergerwerke.de/}{Bürgerwerke eG, Heidelberg}}
 {
-    Ground-up development of a communication and organization web portal in Ruby on Rails. Backend and Frontend work, idea to finish.
+    Ground-up development of a team communication and organization web portal in Ruby on Rails.
+    Backend and Frontend work.
+    Software engineering from planning the project until complete delivery.
 }
-{Rails{\|}Ruby}
+{Rails{\|}Ruby{\|}Software Engineering}
 
 \entry%
 {09/2016 -- 06/2017}
 {Laboratory admin}
 {\href{https://uni-heidelberg.de/fakultaeten/wiso/awi/index_en.html}{Alfred-Weber-Institute, Heidelberg}}
 {
-    Administrator in the behavior Economics computer lab. Development of an experiment administration software.
+    Administrator in a computer lab for Behavioral Economics experiments.
+    Development of an experiment administration software.
 }
-{Rails{\|}Ruby{\|}Python}
+{Ruby{\|}Python}
 
 \entry%
 {10/2015 -- 02/2016}
 {Teaching Assistant}
 {\href{https://uni-heidelberg.de/en}{University Heidelberg}}
 {
-    Self-prepared weekly training classes for course practical computer science.
+    Assisting with the Bachelor course \textit{Practical Computer Science}.
+    Teaching in self-prepared weekly tutorial session.
 }
 {C++{\|}C}
 
@@ -187,8 +203,14 @@ My interests lie in machine, especially deep learning. I am interested in genera
 }
 {team building{\|}lead generation{\|}design work{\|}writing grant applications}
 
-\cvsect{Skills}
-test
+\cvsect*{Skills}
+\begin{itemize}
+    \item Excellent skills in machine learning engineering with Python: PyTorch, TensorFlow, Caffe, Pandas, SciPy, OpenCV, Scikit-Learn
+    \item Excellent skills in using GNU/Linux systems: Sysem administration, BASH, Perl
+    \item Strong academic and technical writing skills as well as enthusiasm for writing useful tutorials (see blog)
+    \item Strong skills in data visualization: Dash (plotly), D3, web technologies
+    \item Engineering experience in working with: MATLAB, Java, C++, JavaScript
+\end{itemize}
 
 \begin{minipage}[t]{.5\columnwidth}
     \cvsect*{Languages}
