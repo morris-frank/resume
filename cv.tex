@@ -1,24 +1,34 @@
-\documentclass{article}
+\documentclass[8pt]{extarticle}
 \pagestyle{empty}
 \usepackage{geometry}
 \geometry{
 	paper=a4paper,
 	top=0.75cm,
 	bottom=0.5cm,
-	left=1.7cm,
-	right=1.7cm,
+	left=.8cm,
+	right=.8cm,
 }
+
+\usepackage{suffix}
+\usepackage{xifthen}
 
 \usepackage[sfdefault]{FiraSans}
 \usepackage[hidelinks]{hyperref}
-\usepackage{xparse}
 \usepackage{fontawesome}
+\usepackage{xparse}
+
 \usepackage{enumitem}
+\setlist{nosep, left=4pt}
+
+\usepackage{multicol}
+\setlength\columnsep{.8cm}
 
 \setlength{\parindent}{0mm}
+\frenchspacing
 
 \usepackage{tikz}
 \definecolor{primary}{rgb}{0.408, 0.616, 0.416}
+
 
 % Command to vertically centre adjacent content
 \newcommand{\vcenteredhbox}[1]{% The only parameter is for the content to centre
@@ -27,190 +37,175 @@
 	\endgroup%
 }
 
-% Command to output an icon in a black square box with text to the right
 \newcommand{\icon}[3]{% The first parameter is the FontAwesome icon name, the second is the box size and the third is the text
-	\vcenteredhbox{\colorbox{primary}{\makebox(#2, #2){\textcolor{white}{\large\csname fa#1\endcsname}}}}% Icon and box
+	\vcenteredhbox{\colorbox{primary}{\makebox(#2, #2){\textcolor{white}{\LARGE\csname fa#1\endcsname}}}}% Icon and box
 	\hspace{0.2cm}% Whitespace
-	\vcenteredhbox{\textcolor{primary}{#3}}% Text
+	\vcenteredhbox{\large\textcolor{primary}{#3}}% Text
 }
 
-% Command to output section title headings
-\newcommand{\cvsect}[1]{
-	\vspace{0.5\baselineskip}
-	\colorbox{primary}{\textcolor{white}{\MakeUppercase{\textbf{#1}}}}\\
+\newcommand{\bicon}[2]{
+    \textbf{%
+    \vcenteredhbox{\makebox(11, 11){\small\csname fa#1\endcsname}}%
+    \hspace{0.05cm}%
+    \vcenteredhbox{#2}}%
 }
 
-\usepackage{longtable} % Required for tables that span multiple pages
-\setlength{\LTpre}{0pt} % Remove default whitespace before longtable
-\setlength{\LTpost}{0pt} % Remove default whitespace after longtable
-
-\setlength{\tabcolsep}{0pt} % No spacing between table columns
-
-% Environment to hold a new list of entries
-\newenvironment{entrylist}{
-	\begin{longtable}[H]{l l}
-}{
-	\end{longtable}
+\newcommand*{\cvsect}[1]{
+    \vspace{\baselineskip}
+    \colorbox{primary}{\textcolor{white}{\MakeUppercase{\textbf{\large #1}}}}%
+    \vspace{0.75\baselineskip}\\%
 }
 
-\newcommand{\entry}[4]{%
-	\parbox[t]{0.175\linewidth}{#1} &
-	\parbox[t]{0.825\linewidth}{
-		\textbf{#2}% Entry heading text
-		\hfill% Horizontal whitespace
-		{\footnotesize \textbf{\textcolor{black}{#3}}}\\% Right-aligned entry qualifier text
-		{\small #4} % Entry description text
-    }\\\\}
+\WithSuffix\newcommand\cvsect*[1]{\cvsect{#1}\vspace{-0.75\baselineskip}}
 
-\NewDocumentEnvironment{cvbox}{g}{
-    \begin{minipage}[t]{0.3\textwidth}
-    \vspace{-\baselineskip}
-    \IfValueTF{#1}{\cvsect{#1}}{}
-    \vspace{-0.5\baselineskip}
+\newcommand{\entry}[5]{%
+    \filbreak%
+    {\large #2}\vspace{0.2\baselineskip}\\%
+    \bicon{MapMarker}{#3}\hfill%
+    \bicon{Calendar}{#1}\vspace{.5\baselineskip}\\%
+    #4\vspace{.5\baselineskip}\\%
+    \ifthenelse{\isempty{#5}}{}{{\texttt{#5}}\vspace{.75\baselineskip}\\}%
+}%
 
-    \small
-}{
-    \end{minipage}
-}
-
-\newcommand{\slashsep}{\hspace{2mm}/\hspace{2mm}}
+\renewcommand{\|}{\hspace{1.2mm}/\hspace{1.2mm}}
 
 \begin{document}
 \begin{minipage}[t]{0.4\textwidth}
     \vspace{-\baselineskip}
-    {\LARGE\textcolor{gray}{Curriculum Vitae}}\\
+    {\Huge\textcolor{gray}{Curriculum Vitae}}\\
 
     {\Huge Maurice Frank}
 \end{minipage}
-\begin{cvbox}
-	\icon{MapMarker}{12}{Amsterdam, NL}\\
-	\icon{Phone}{12}{\href{tel:0031638493722}{+31 6 38493722}}\\
-\end{cvbox}
-\begin{cvbox}
-	\icon{Globe}{12}{\href{https://morris-frank.dev}{morris-frank.dev}}\\
-    \icon{At}{12}{\href{mailto:maurice.frank@posteo.de}{maurice.frank@posteo.de}}\\
-	\icon{Github}{12}{\href{https://github.com/morris-frank}{github.com/morris-frank}}\\
-\end{cvbox}
+\begin{minipage}[t]{.3\textwidth}
+        \icon{MapMarker}{12}{Amsterdam, NL}\\
+        \icon{Phone}{12}{\href{tel:0031638493722}{+31 6 38493722}}\\
+        \icon{At}{12}{\href{mailto:maurice.frank@posteo.de}{maurice.frank@posteo.de}}\\
+\end{minipage}
+\begin{minipage}[t]{.3\textwidth}
+	\icon{User}{12}{\href{https://morris-frank.dev}{morris-frank.dev}}\\
+    \icon{Github}{12}{\href{https://github.com/morris-frank}{github.com/morris-frank}}\\
+    \icon{Linkedin}{12}{\href{https://linkedin.com/in/morris-frank}{linkedin.com/in/morris-frank}}\\
+\end{minipage}
+
+\begin{multicols*}{2}
+
+\cvsect{Interests}
+My interests lie in machine, especially deep learning. I am interested in generative modeling and
+    Bayesian methods. Applications to music and sound. Understanding of perception.
 
 \cvsect{Education}
-\begin{entrylist}
-    \entry{2018--2020}
-    {M.Sc. Artificial Intelligence}
-    {\href{https://uva.nl}{Universiteit van Amsterdam}, \href{https://vu.nl}{Vrije Universiteit Amsterdam}}
-    {
-        \{Deep, Machine, Reinforcement\} Learning, Sound processing, Computer Vision\hfill\textit{GPA 8.8/10 \scriptsize{(est)}}\\
-        \\
-        \textbf{Thesis:} Investigating Baysian methods for un- and semi-supervised music source separation. Do generative models know what they don't know?\\
-        \emph{Supervisor:} \href{https://scholar.google.com/citations?user=KNJIRGkAAAAJ}{Maximilian Ilse, AMLab}\\
-        \texttt{Python}\slashsep\texttt{PyTorch}
-    }
+\entry{2018 -- 2020}
+{M.Sc. Artificial Intelligence\hfill\textit{\small GPA 8.8/10 \footnotesize{(est)}}}
+{\href{https://uva.nl}{Universiteit van Amsterdam}}
+{\begin{itemize}%
+        \item Research focussed degree containing theory and practice of most contemporary topics of AI/ML
+        \item Topics
+    \end{itemize}
+    \textbf{Thesis:} Investigating Bayesian methods for un- and semi-supervised music source separation. Do generative models know what they don't know?\\\\
+    \emph{Supervisor:} \href{https://scholar.google.com/citations?user=KNJIRGkAAAAJ}{Maximilian Ilse (AMLab)}, \href{https://scholar.google.com/citations?user=QqfCvsgAAAAJ}{Prof. Efstratios Gavves}
+}
+{}
 
-    \entry{2014--2017}
-    {B.Sc. Applied Computer Science}
-    {\href{https://www.uni-heidelberg.de/en}{University Heidelberg}}
-    {
-        \textit{Focus}: Image processing and pattern recognition\hfill\textit{GPA 3.48/4}\\
-        \\
-        \textbf{\href{https://github.com/morris-frank/ba_latex/blob/master/thesis.pdf}{Thesis:}} Using a FCN-ResNet based detector the thesis provides a reverse image search tool here in particular to retrieve art historic images containing an object given by a reference image.\\
-        \emph{Supervisor:} \href{https://scholar.google.com/citations?user=ZrRs-qoAAAAJ}{Dr.\ Miguel Bautista Martin}, \href{https://hci.iwr.uni-heidelberg.de/Staff/bommer}{Prof.\ Dr.\ Björn Ommer}\\
-        \texttt{Python}\slashsep\texttt{Caffe}\slashsep\texttt{Keras}\\
-    }
+\entry{2014 -- 2017}
+{B.Sc. Applied Computer Science\hfill\textit{\small GPA 3.48/4}}
+{\href{https://uni-heidelberg.de/en}{University Heidelberg}}
+{
+    \textit{Focus}: Image processing and pattern recognition\\
+    \textbf{Thesis:} Using a FCN-ResNet based detector the thesis provides a reverse image search tool here in particular to retrieve art historic images containing an object given by a reference image.\href{https://github.com/morris-frank/ba_latex/blob/master/thesis.pdf}{\bicon{Link}{Read}}\\\\
+    \emph{Supervisor:} \href{https://scholar.google.com/citations?user=ZrRs-qoAAAAJ}{Dr.\ Miguel Bautista Martin}, \href{https://hci.iwr.uni-heidelberg.de/Staff/bommer}{Prof.\ Dr.\ Björn Ommer}
+}
+{}
 
-    \entry{2013--2014}
-    {B.Sc. Physics}
-    {\href{https://www.uni-heidelberg.de/en}{University Heidelberg}}
-    {Change of degree after the second semester, kept as minor studies}
-
-    % \entry{2005--2013}
-    % {A levels}
-    % {\href{http://www.mpg-online.de/}{Max-Planck Gymnasium, Schorndorf}}
-    % {\hfill\textit{GPA B-}}
-\end{entrylist}
+\entry{2013 -- 2014}
+{B.Sc. Physics}
+{\href{https://uni-heidelberg.de/en}{University Heidelberg}}
+{Change of degree after the second semester, kept as minor studies}
+{}
 
 \cvsect{Experience}
-\begin{entrylist}
-    \entry%
-    {02/2020--\\04/2020}
-    {Teaching Assistant --- Information Retrieval}
-    {\href{https://uva.nl/}{Universiteit van Amsterdam}}
-    {
-        TA for the master's course \textit{Information Retrieval I}.\\
-        \texttt{Python} \slashsep\texttt{PyTorch}
-    }
+\entry%
+{01/2020 -- 04/2020}
+{Graduate Teaching Assistant}
+{\href{https://uva.nl/}{Universiteit van Amsterdam}}
+{
+    Assisting with the master level courses:
+    \begin{itemize}
+        \item Information Retrieval
+        \item Fairness, Accountability, Confidentiality and Transparency in AI
+    \end{itemize}
+    teaching n stuff
+}
+{Python{\|}PyTorch}
 
-    \entry%
-    {01/2020--\\02/2020}
-    {Teaching Assistant --- FAT in AI}
-    {\href{https://uva.nl/}{Universiteit van Amsterdam}}
-    {
-        TA for the masters course \textit{Fairness, Accountability, Confidentiality and Transparency in AI}.\\
-        \texttt{Python} \slashsep\texttt{PyTorch}
-    }
+\entry%
+{06/2019 -- 08/2019}
+{Internship --- AI for production control}
+{\href{https://bmwgroup.com}{BMW Group, Munich}}
+{
+    Worked within the engine development department.
+    Building statistical models to analyze engine part quality and live fleet monitoring.
+    Building a production ready data visualization app.
+}
+{Python{\|}PySpark{\|}Palantir Foundry{\|}PostgreSQL{\|}Dash{\|}Agile development}
 
-    \entry%
-    {06/2019--\\08/2019}
-    {Internship --- AI for production control}
-    {\href{https://www.bmwgroup.com}{BMW Group, Munich}}
-    {
-        Worked within the engine development department.
-        Building statistical models to analyze engine part quality and live fleet monitoring.
-        Building a production ready data visualization app.\\
-        \texttt{Python}\slashsep\texttt{PySpark}\slashsep\texttt{Palantir Foundry}\slashsep\texttt{PostgreSQL}\slashsep\texttt{Dash}\slashsep\texttt{Agile development}
-    }
+\entry%
+{04/2018 -- 08/2018}
+{Full-stack Web developer}
+{\href{https://buergerwerke.de/}{Bürgerwerke eG, Heidelberg}}
+{
+    Ground-up development of a communication and organization web portal in Ruby on Rails. Backend and Frontend work, idea to finish.
+}
+{Rails{\|}Ruby}
 
-    \entry%
-    {04/2018--\\08/2018}
-    {Full-stack Web developer}
-    {\href{https://buergerwerke.de/}{Bürgerwerke eG, Heidelberg}}
-    {
-        Ground-up development of a communication and organization web portal in Ruby on Rails. Backend and Frontend work, idea to finish.\\
-        \texttt{Rails}\slashsep\texttt{Ruby}
-    }
+\entry%
+{09/2016 -- 06/2017}
+{Laboratory admin}
+{\href{https://uni-heidelberg.de/fakultaeten/wiso/awi/index_en.html}{Alfred-Weber-Institute, Heidelberg}}
+{
+    Administrator in the behavior Economics computer lab. Development of an experiment administration software.
+}
+{Rails{\|}Ruby{\|}Python}
 
-    \entry%
-    {09/2016--\\06/2017}
-    {Laboratory admin}
-    {\href{https://www.uni-heidelberg.de/fakultaeten/wiso/awi/index_en.html}{Alfred-Weber-Institute for Economics, Heidelberg}}
-    {
-        Administrator in the behavior Economics computer lab. Development of an experiment administration software.\\
-        \texttt{Rails}\slashsep\texttt{Ruby}\slashsep\texttt{Python}
-    }
+\entry%
+{10/2015 -- 02/2016}
+{Teaching Assistant}
+{\href{https://uni-heidelberg.de/en}{University Heidelberg}}
+{
+    Self-prepared weekly training classes for course practical computer science.
+}
+{C++{\|}C}
 
-    \entry%
-    {10/2015--\\02/2016}
-    {Teaching Assistant --- CS}
-    {\href{https://www.uni-heidelberg.de/en}{University Heidelberg}}
-    {
-        Self-prepared weekly training classes for course practical computer science.\\
-        \texttt{C++}
-    }
+\cvsect{Voluntary work}
+\entry%
+{06/2015--}
+{CO-Founder}
+{\href{https://collegiumacademicum.de}{Collegium Academicum, Heidelberg}}
+{
+    Student-founded non-profit company building sustainable student housing.
+    We are building an innovative living space for 200 young people.
+    Creating an educational center for holistic self-learning.
+}
+{team building{\|}lead generation{\|}design work{\|}writing grant applications}
 
-    \entry%
-    {06/2015--}
-    {CO-Founder\ /\ Voluntary work}
-    {\href{https://collegiumacademicum.de}{Collegium Academicum, Heidelberg}}
-    {
-        Student-founded non-profit company building sustainable student housing.
-        We are building an innovative living space for 200 young people.
-        Creating an educational center for holistic self-learning.\\
-        \texttt{team building}\slashsep\texttt{lead generation}\slashsep\texttt{design work}\slashsep\texttt{writing grant applications}
-    }
-\end{entrylist}
+\cvsect{Skills}
+test
 
-\begin{cvbox}{Languages}
-	\textbf{German} --- native\\
-	\textbf{English} --- proficient (TOEFL 112/120)\\
-    \textbf{Farsi} --- \textit{beginner}
-\end{cvbox}
-\begin{cvbox}{Academic interests}
-    My interests lie in machine, especially deep learning. I am interested in generative modeling and
-    Bayesian methods. Applications to music and sound. Understanding of perception.
-\end{cvbox}
-\begin{cvbox}{Personal interests}
-    \begin{itemize}[nosep, left=4pt]
+\begin{minipage}[t]{.5\columnwidth}
+    \cvsect*{Languages}
+    \begin{itemize}[left=3.5em]
+        \item[\textbf{German}] native
+        \item[\textbf{English}] fluent (TOEFL 112/120)
+        \item[\textbf{Persian}] \textit{beginner}
+    \end{itemize}
+\end{minipage}
+\begin{minipage}[t]{.5\columnwidth}
+    \cvsect*{Personal interests}
+    \begin{itemize}
         \item Climbing
         \item Mountaineering
         \item Electronic music production
     \end{itemize}
-\end{cvbox}
+\end{minipage}
+
+\end{multicols*}
 \end{document}
