@@ -17,6 +17,11 @@
 \usepackage{fontawesome}
 \usepackage{xparse}
 
+\usepackage{csquotes}
+\usepackage[style=publist]{biblatex}
+\plauthorname[Maurice]{Frank}
+\addbibresource{pubs.bib}
+
 \usepackage{enumitem}
 \setlist{left=4pt, topsep=5pt, partopsep=0pt, parsep=0pt, itemsep=4pt}
 
@@ -91,6 +96,7 @@
 \vspace{5pt}
 
 \begin{multicols*}{2}
+% \raggedcolumns%
 \cvsect{Interests}
 
 I like to hunt creative solutions to challenging problems with the use of machine learning.
@@ -135,6 +141,27 @@ I have strong theoretical backgrounds on machine learning and a background in ph
 {Change of degree after the first year, kept as minor studies.}
 {}
 
+% \cvsect{Publications}%
+% \begin{refsection}[pubs]%
+%     \nocite{*}%
+%     \vspace{-2\topsep}%
+%     \printbibliography[heading=none]
+%     \vspace{\topsep}
+% \end{refsection}
+
+\cvsect{Voluntary work}
+\entry%
+{06/2015--}
+{CO-Founder}
+{\href{https://collegiumacademicum.de}{Collegium Academicum, Heidelberg}}
+{
+    Student-founded non-profit company building sustainable student housing.
+    We are building an innovative living space for 200 young people.
+    Creating an educational center for holistic self-learning.
+}
+{team building{\|}lead generation{\|}design work{\|}writing grant applications}
+
+\columnbreak%
 \cvsect{Experience}
 \entry%
 {01/2020 -- 04/2020}
@@ -194,51 +221,40 @@ I have strong theoretical backgrounds on machine learning and a background in ph
 }
 {C++{\|}C}
 
-\cvsect{Voluntary work}
-\entry%
-{06/2015--}
-{CO-Founder}
-{\href{https://collegiumacademicum.de}{Collegium Academicum, Heidelberg}}
-{
-    Student-founded non-profit company building sustainable student housing.
-    We are building an innovative living space for 200 young people.
-    Creating an educational center for holistic self-learning.
-}
-{team building{\|}lead generation{\|}design work{\|}writing grant applications}
-
 \cvsect*{Skills}
 \begin{itemize}
     \item Excellent skills in machine learning engineering with Python: PyTorch, TensorFlow, Caffe, Pandas, SciPy, OpenCV, Scikit-Learn
     \item Excellent skills in using GNU/Linux systems: System administration, BASH, Perl, Git, Slurm
     \item Strong academic and technical writing skills as well as enthusiasm for writing useful tutorials (see blog)
     \item Strong skills in data visualization: Dash (plotly), D3, web technologies
-    \item Engineering experience in working with: MATLAB, Java, C++, JavaScript
+    \item Engineering experience in working with: MATLAB, Java, C++, JavaScript\vspace{\baselineskip}
+    \item \textit{Spoken languages}: German native, English fluent (TOEFL 112/120), Persian and Dutch beginner level
 \end{itemize}
 
-\begin{minipage}[t]{.4\columnwidth}
-    \cvsect*{Languages}
-    \begin{itemize}[left=3.5em]
-        \item[\textbf{German}] native
-        \item[\textbf{English}] fluent\\(TOEFL 112/120)
-        \item[\textbf{Persian}] \textit{beginner}
-        \item[\textbf{Dutch}] \textit{beginner}
-    \end{itemize}
-\end{minipage}
-\begin{minipage}[t]{.6\columnwidth}
-    \cvsect*{Academic references}
-    \begin{itemize}
-        \item Prof Dr Efstratios Gavves (QUVA Lab)
-        \item Prof Dr Björn Ommer (Uni Heidelberg)
-        \item Dr Miguel Bautista Martin (Apple Inc)%:\\\href{mailto:mbautistamartin@apple.com}{mbautistamartin@apple.com}
-        \item Maximilian Ilse (AMLab)%:\\\href{mailto:M.Ilse@uva.nl}{M.Ilse@uva.nl}
-    \end{itemize}
-    % \cvsect*{Personal interests}
-    % \begin{itemize}
-    %     \item Climbing
-    %     \item Mountaineering
-    %     \item Electronic music production
-    % \end{itemize}
-\end{minipage}
+% \begin{minipage}[t]{.4\columnwidth}
+%     \cvsect*{Languages}
+%     \begin{itemize}[left=3.5em]
+%         \item[\textbf{German}] native
+%         \item[\textbf{English}] fluent\\(TOEFL 112/120)
+%         % \item[\textbf{Persian}] \textit{beginner}
+%         % \item[\textbf{Dutch}] \textit{beginner}
+%     \end{itemize}
+% \end{minipage}
+% \begin{minipage}[t]{.6\columnwidth}
+%     % \cvsect*{Academic references}
+%     % \begin{itemize}
+%     %     \item Prof Dr Efstratios Gavves (QUVA Lab)
+%     %     \item Prof Dr Björn Ommer (Uni Heidelberg)
+%     %     \item Dr Miguel Bautista Martin (Apple Inc)%:\\\href{mailto:mbautistamartin@apple.com}{mbautistamartin@apple.com}
+%     %     \item Maximilian Ilse (AMLab)%:\\\href{mailto:M.Ilse@uva.nl}{M.Ilse@uva.nl}
+%     % \end{itemize}
+%     % \cvsect*{Personal interests}
+%     % \begin{itemize}
+%     %     \item Climbing
+%     %     \item Mountaineering
+%     %     \item Electronic music production
+%     % \end{itemize}
+% \end{minipage}
 
 \end{multicols*}
 \end{document}
