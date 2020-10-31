@@ -57,8 +57,7 @@
 }
 
 \newcommand*{\cvsect}[1]{
-    \vspace{2pt plus 1pt minus 1pt}%
-    % \smallbreak%
+    % \vspace{2pt plus 1pt minus 1pt}%
     \colorbox{primary}{\textcolor{white}{\MakeUppercase{\textbf{\large #1}}}}%
     \vspace{0.2\baselineskip}\\%
 }
@@ -71,7 +70,7 @@
     \bicon{MapMarker}{#3}\hfill%
     \bicon{Calendar}{#1}\vspace{.5\baselineskip}\\%
     #4\vspace{.5\baselineskip}\\%
-    \ifthenelse{\isempty{#5}}{}{{\texttt{#5}}\vspace{.5\baselineskip}\\}%
+    \ifthenelse{\isempty{#5}}{}{{\texttt{#5}}\vspace{0pt}\\}%
 }%
 
 \renewcommand{\|}{\hspace{1.2mm}/\hspace{1.2mm}}
@@ -93,12 +92,10 @@
     \icon{Github}{12}{\href{https://github.com/morris-frank}{github.com/morris-frank}}\\
     \icon{Linkedin}{12}{\href{https://linkedin.com/in/morris-frank}{linkedin.com/in/morris-frank}}\\
 \end{minipage}
-\vspace{5pt}
+\vspace{1pt}
 
 \begin{multicols*}{2}
 % \raggedcolumns%
-\cvsect{Interests}
-
 I like to hunt creative solutions to challenging problems with the use of machine learning.
 I want my work to have a real positive impact on the world and I favour team-work with enthusiastic colleagues.
 My current academic interest lies in deep generative modelling and Bayesian methods, VAEs and Flows.
@@ -112,11 +109,11 @@ I have strong theoretical backgrounds on machine learning and a background in ph
 {
     Research degree with most contemporary topics in AI/ML
     \begin{itemize}%
-        \item Theory and practical implementation of the concepts of machine and deep learning: CNNs, RNNs/LSTMs, VAEs/Flows, GANs, MCMC/sampling, Gaussian process/Bayesian modelling, ICA,
+        \item Theory and practical implementation of the concepts of machine and deep learning: CNNs, RNNs/LSTMs, VAEs/Flows, GANs, MCMC/sampling, Gaussian process/Bayesian modelling, ICA
         \item Specialization in topics: Theoretical machine learning, Computer Vision, Reinforcement Learning, NLP, Information theory
     \end{itemize}
     \textbf{Thesis:} Investigating Bayesian methods for unsupervised music source separation. Do generative models know what they don't know? \href{https://raw.githubusercontent.com/morris-frank/thesis-tex/master/main.pdf}{\bicon{Link}{Read}}\\
-    \emph{Supervisor:} \href{https://scholar.google.com/citations?user=KNJIRGkAAAAJ}{Maximilian Ilse (AMLab)}, \href{https://www.egavves.com/}{Dr. Efstratios Gavves}
+    \emph{Supervisor:} \href{https://scholar.google.com/citations?user=KNJIRGkAAAAJ}{Maximilian Ilse (AMLab)}, \href{https://www.egavves.com/}{Dr Efstratios Gavves}
 }
 {}
 
@@ -128,7 +125,6 @@ I have strong theoretical backgrounds on machine learning and a background in ph
     \begin{itemize}
         \item Specialization on image processing and pattern recognition: Deep Learning, 3D Computer vision, medical image analysis, fairness in AI
         \item Courses on Practical CS, Algorithms, DBMS, Theoretical informatics, Numerical methods and software engineering
-        \item Minor in the basic concepts of Physics
     \end{itemize}
     \textbf{Thesis:} Using a FCN-ResNet based detector the thesis provides a reverse image search tool here in particular to retrieve art historic images containing an object given by a reference image.\href{https://github.com/morris-frank/ba_latex/blob/master/thesis.pdf}{\bicon{Link}{Read}}\\
     \emph{Supervisor:} \href{https://scholar.google.com/citations?user=ZrRs-qoAAAAJ}{Dr\ Miguel Bautista Martin}, \href{https://hci.iwr.uni-heidelberg.de/Staff/bommer}{Prof.\ Dr\ Björn Ommer}
@@ -141,39 +137,54 @@ I have strong theoretical backgrounds on machine learning and a background in ph
 {Change of degree after the first year, kept as minor studies.}
 {}
 
-% \cvsect{Publications}%
-% \begin{refsection}[pubs]%
-%     \nocite{*}%
-%     \vspace{-2\topsep}%
-%     \printbibliography[heading=none]
-%     \vspace{\topsep}
-% \end{refsection}
+\cvsect{Publications}%
+\begin{refsection}[pubs]%
+    \nocite{*}%
+    \vspace{-2\topsep}%
+    \printbibliography[heading=none]
+    \vspace{\topsep}
+\end{refsection}
 
 \cvsect{Voluntary work}
 \entry%
-{06/2015--}
-{CO-Founder}
+{11/2020 --}
+{CO-Founder / Member}
+{\href{http://ackersyndikat.org}{Ackersyndikat}}
+{
+    Germany-wide non-profit cooperative trying to build a financing model for self-organized ecological farming businesses.
+}
+{}
+
+\entry%
+{06/2015 --}
+{CO-Founder / Member}
 {\href{https://collegiumacademicum.de}{Collegium Academicum, Heidelberg}}
 {
     Student-founded non-profit company building sustainable student housing.
     We are building an innovative living space for 200 young people.
     Creating an educational center for holistic self-learning.
 }
-{team building{\|}lead generation{\|}design work{\|}writing grant applications}
+{team building{\|}lead generation{\|}design work}
 
 \columnbreak%
 \cvsect{Experience}
+\entry%
+{11/2020 --}
+{Machine learning scientist}
+{\href{https://hummingbird-diagnostics.com/}{Hummingbird Diagnostics}, Heidelberg}
+{
+    Development of deep learning based approaches to cancer and disease detection from liquid biopsy (blood samples).
+    Working with sequence embedding models and graph networks on microRNA biomarkers.
+}
+{Python{\|}PyTorch{\|}Biostatistics}
+
 \entry%
 {01/2020 -- 04/2020}
 {Graduate Teaching Assistant}
 {\href{https://uva.nl/}{Universiteit van Amsterdam}}
 {
-    Assisting with the master level courses:
-    \begin{itemize}
-        \item Information Retrieval
-        \item Fairness, Accountability, Confidentiality and Transparency in AI
-    \end{itemize}
-    Each teaching tutorial sessions, correcting course work and support students in finishing scientific work and writing.
+    Assisting with the master level courses \textit{Information Retrieval} and \textit{Fairness, Accountability, Confidentiality and Transparency in AI}.
+    Teaching tutorial sessions, correcting course work and support students in finishing scientific work and writing.
 }
 {Python{\|}PyTorch}
 
@@ -188,7 +199,7 @@ I have strong theoretical backgrounds on machine learning and a background in ph
 
     Official corporate testimony: \textit{Significantly exceeds requirements at all times} in all criteria, engineering, analytical skills and teamwork.
 }
-{Python{\|}PySpark{\|}Palantir Foundry{\|}PostgreSQL{\|}Dash{\|}Agile development}
+{Python{\|}PySpark{\|}Palantir Foundry{\|}Dash{\|}Agile development}
 
 \entry%
 {01/2018 -- 08/2018}
@@ -226,7 +237,7 @@ I have strong theoretical backgrounds on machine learning and a background in ph
     \item Excellent skills in machine learning engineering with Python: PyTorch, TensorFlow, Caffe, Pandas, SciPy, OpenCV, Scikit-Learn
     \item Excellent skills in using GNU/Linux systems: System administration, BASH, Perl, Git, Slurm
     \item Strong academic and technical writing skills as well as enthusiasm for writing useful tutorials (see blog)
-    \item Strong skills in data visualization: Dash (plotly), D3, web technologies
+    \item Strong skills in data visualization: pyplot, Dash (plotly), web technologies
     \item Engineering experience in working with: MATLAB, Java, C++, JavaScript\vspace{\baselineskip}
     \item \textit{Spoken languages}: German native, English fluent (TOEFL 112/120), Persian and Dutch beginner level
 \end{itemize}
