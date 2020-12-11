@@ -12,7 +12,10 @@
 \usepackage{suffix}
 \usepackage{xifthen}
 
-\usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{FiraSans}
+\usepackage[narrow]{inconsolata}
+\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+\usepackage[T1]{fontenc}
 \usepackage[hidelinks, pdftex, pdftitle={Curriculum Vitae – Maurice Frank}, pdfauthor={Maurice Frank}]{hyperref}
 \usepackage{fontawesome}
 \usepackage{xparse}
@@ -174,8 +177,9 @@ I have strong theoretical backgrounds on machine learning and a background in ph
 {
     Development of deep learning based approaches to cancer and disease detection from liquid biopsy (blood samples).
     Working with sequence embedding models and graph networks on microRNA biomarkers.
+    Focus on unsupervised representation learning and explainability.
 }
-{Python{\|}PyTorch{\|}Biostatistics}
+{Python{\|}PyTorch{\|}R{\|}Biostatistics}
 
 \entry%
 {06/2019 -- 08/2019}
