@@ -1,0 +1,274 @@
+\documentclass[8pt]{extarticle}
+\pagestyle{empty}
+\usepackage{geometry}
+\geometry{
+	paper=a4paper,
+	top=0.75cm,
+	bottom=0.5cm,
+	left=.8cm,
+	right=.8cm,
+}
+
+\usepackage{suffix}
+\usepackage{xifthen}
+
+\usepackage[sfdefault]{FiraSans}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks, pdftex, pdftitle={Curriculum Vitae – Maurice Frank}, pdfauthor={Maurice Frank}, naturalnames, unicode]{hyperref}
+\usepackage{fontawesome}
+\usepackage{xparse}
+\usepackage{csquotes}
+
+\usepackage[style=publist]{biblatex}
+\plauthorname[Maurice]{Frank}
+\addbibresource{pubs.bib}
+
+\usepackage{enumitem}
+\setlist{left=4pt, topsep=5pt, partopsep=0pt, parsep=0pt, itemsep=4pt}
+
+\usepackage{multicol}
+\setlength\columnsep{.8cm}
+
+\setlength{\parindent}{0mm}
+\renewcommand{\baselinestretch}{1.1}
+
+\usepackage{tikz}
+\definecolor{primary}{rgb}{0.455, 0.635, 0.365}
+
+
+% Command to vertically centre adjacent content
+\newcommand{\vcenteredhbox}[1]{% The only parameter is for the content to centre
+	\begingroup%
+		\setbox0=\hbox{#1}\parbox{\wd0}{\box0}%
+	\endgroup%
+}
+
+\newcommand{\icon}[3]{
+	\vcenteredhbox{\colorbox{primary}{\makebox(#2, #2){\textcolor{white}{\LARGE\csname fa#1\endcsname}}}}% Icon and box
+	\hspace{0.2cm}% Whitespace
+	\vcenteredhbox{\large\textcolor{primary}{#3}}% Text
+}
+
+\newcommand{\bicon}[2]{
+    \textbf{%
+    \vcenteredhbox{\makebox(11, 11){\small\csname fa#1\endcsname}}%
+    \hspace{0.05cm}%
+    \vcenteredhbox{#2}}%
+}
+
+\newcommand*{\cvsect}[1]{
+    \colorbox{primary}{\textcolor{white}{\MakeUppercase{\textbf{\large #1}}}}%
+    \vspace{0.2\baselineskip}\\%
+}
+
+\WithSuffix\newcommand\cvsect*[1]{\cvsect{#1}\vspace{-0.8\baselineskip}}
+
+\newcommand{\entry}[5]{%
+    \filbreak%
+    {\large #2}\vspace{0.15\baselineskip}\\%
+    \bicon{MapMarker}{#3}\hfill%
+    \bicon{Calendar}{#1}\vspace{.5\baselineskip}\\%
+    #4\vspace{.5\baselineskip}\\%
+    \ifthenelse{\isempty{#5}}{}{{\texttt{#5}}\vspace{0pt}\\}%
+}%
+
+\renewcommand{\|}{\hspace{1.2mm}/\hspace{1.2mm}}
+
+\begin{document}
+\begin{minipage}[t]{0.45\textwidth}
+    \vspace{-5pt}%
+    {\Huge Maurice Frank}\\
+
+    {\Huge\textcolor{gray}{Machine learning scientist}}
+\end{minipage}
+\begin{minipage}[t]{.275\textwidth}
+        \icon{MapMarker}{12}{\href{https://www.openstreetmap.org/relation/271110}{Amsterdam, NL}}\\
+        \icon{Phone}{12}{\href{tel:0031638493722}{+31 6 38493722}}\\
+        \icon{At}{12}{\href{mailto:morris@morris-frank.dev}{morris@morris-frank.dev}}\\
+\end{minipage}
+\begin{minipage}[t]{.275\textwidth}
+	\icon{User}{12}{\href{https://morris-frank.dev}{morris-frank.dev}}\\
+    \icon{Github}{12}{\href{https://github.com/morris-frank}{github.com/morris-frank}}\\
+    \icon{Linkedin}{12}{\href{https://linkedin.com/in/morris-frank}{linkedin.com/in/morris-frank}}\\
+\end{minipage}
+\vspace{-6pt}
+
+\begin{multicols*}{2}
+
+\cvsect{Experience}
+\entry%
+{11/2020 --}
+{Machine learning scientist}
+{\href{https://hummingbird-diagnostics.com/}{Hummingbird Diagnostics}, Heidelberg}
+{
+    Development of deep learning based approaches to cancer and disease detection from liquid biopsy (blood samples).
+    Working with sequence embedding models and graph networks on microRNA biomarkers.
+    Focus on unsupervised representation learning and explainability.
+}
+{Python{\|}PyTorch{\|}sklearn{\|}Biostatistics}
+
+\entry%
+{11/2020 --}
+{Freelance software engineer}
+{\href{https://morris-frank.dev/services/}{Morris-Frank}, Amsterdam}
+{Ongoing work for various clients. Projects including standard web design projects as well as cloud service infrastructure for an educational institution and residential energy tracking. (References available).}
+{Web design{\|}API design{\|}Cloud app design}
+
+\entry%
+{11/2019 -- 06/2020}
+{Research Intern}
+{\href{https://amlab.science.uva.nl/}{AMLab, University of Amsterdam}, Amsterdam}
+{
+    Intern at Max Welling's Machine Learning Lab at the University of Amsterdam. Working on research ideas surrounding the final thesis research question (see left column).
+}
+{Python{\|}PyTorch{\|}Slurm}
+
+\entry%
+{06/2019 -- 08/2019}
+{Machine learning engineer -- Intern}
+{\href{https://bmwgroup.com}{BMW Group, Munich}}
+{
+    Worked within the engine development department.
+    Building statistical models to analyze engine part quality and live fleet monitoring.
+    Building a production-ready data visualization app.\\
+    Official corporate testimony: \textquote{Significantly exceeds requirements at all times in all criteria, engineering, analytical skills and teamwork.}
+}
+{Python{\|}PySpark{\|}Palantir Foundry{\|}Dash{\|}Agile development}
+
+\entry%
+{01/2018 -- 12/2018}
+{Full-stack web developer}
+{\href{https://buergerwerke.de/}{Bürgerwerke eG, Heidelberg}}
+{
+    Ground-up development of a team communication and organization web portal in Ruby on Rails.
+    Backend and Frontend work.
+    Software engineering from planning the project until complete delivery.
+}
+{Rails{\|}Ruby{\|}Software Engineering}
+
+\entry%
+{06/2016 -- 06/2017}
+{System administrator / Software engineer}
+{\href{https://uni-heidelberg.de/fakultaeten/wiso/awi/index_en.html}{Alfred-Weber-Institute, Heidelberg}}
+{
+    Administrator in a computer lab for Behavioral Economics experiments.
+    Development new features of an experiment administration software.
+}
+{Rails{\|}Ruby{\|}Python{\|}Windows server}
+
+\cvsect*{Skills}
+\begin{itemize}
+    \item Excellent skills in machine learning engineering with Python: PyTorch, TensorFlow, Caffe, Pandas, SciPy, OpenCV
+    \item DevOps engineering experience with: Scikit-learn, Skorch, Ray, wandb, PyTorch Lightning, DASK
+    \item Excellent skills in using GNU/Linux systems: System administration, BASH, Perl, Git, Slurm
+    \item Strong academic and technical writing skills as well as enthusiasm for writing useful tutorials (see blog)
+    \item Strong skills in data visualization: pyplot, Dash (plotly), web tech
+    \item Engineering experience in working with: MATLAB, Java, C++, JavaScript\vspace{\baselineskip}
+    \item \textit{Spoken languages}: German native, English fluent (TOEFL 112/120), Persian and Dutch beginner level
+\end{itemize}
+
+\columnbreak%
+\cvsect{Education}
+\entry{2018 -- 2020}
+{M.Sc. Artificial Intelligence\hfill\textit{\textbf{\normalsize awarded cum laude}}\ \textit{\normalsize GPA 4/4}}
+{\href{https://uva.nl}{University of Amsterdam}}
+{
+    Research degree with most contemporary topics in AI/ML
+    \begin{itemize}%
+        \item Theory and practical implementation of the concepts of machine and deep learning: CNNs, RNNs/LSTMs, VAEs/Flows, GANs, MCMC/sampling, Gaussian process/Bayesian modelling, ICA
+        \item Specialization in topics: Theoretical machine learning, Computer Vision, Reinforcement Learning, NLP, Information theory
+    \end{itemize}
+    \textbf{Thesis:} Investigating Bayesian methods for unsupervised music source separation. Do generative models know what they don't know? \href{https://github.com/morris-frank/thesis-tex/blob/master/Frank_Thesis_Msc.pdf}{\bicon{Link}{Read}}\\
+    \emph{Supervisor:} \href{https://scholar.google.com/citations?user=KNJIRGkAAAAJ}{Maximilian Ilse (AMLab)}, \href{https://www.egavves.com/}{Dr Efstratios Gavves}
+}
+{}
+
+\entry{2014 -- 2017}
+{B.Sc. Applied Computer Science\hfill\textit{\normalsize GPA 3.58/4}}
+{\href{https://uni-heidelberg.de/en}{University Heidelberg}}
+{
+    General degree on all topics of Computer Science
+    \begin{itemize}
+        \item Specialization on image processing and pattern recognition: Deep Learning, 3D Computer vision, medical image analysis, fairness in AI
+        \item Courses on Practical CS, Algorithms, DBMS, Theoretical informatics, Numerical methods and software engineering
+    \end{itemize}
+    \textbf{Thesis:} Using a FCN-ResNet based detector the thesis provides a reverse image search tool here in particular to retrieve art historic images containing an object given by a reference image.\href{https://github.com/morris-frank/ba_latex/blob/master/thesis.pdf}{\bicon{Link}{Read}}\\
+    \emph{Supervisor:} \href{https://scholar.google.com/citations?user=ZrRs-qoAAAAJ}{Dr\ Miguel Bautista Martin}, \href{https://hci.iwr.uni-heidelberg.de/Staff/bommer}{Prof.\ Dr\ Björn Ommer}
+}
+{}
+
+\entry{2013 -- 2014}
+{B.Sc. Physics}
+{\href{https://uni-heidelberg.de/en}{University Heidelberg}}
+{Change of degree after the first year, kept as minor studies.}
+{}
+
+\cvsect{Publications}%
+\begin{refsection}[pubs]%
+    \nocite{*}%
+    \vspace{-2\topsep}%
+    \printbibliography[heading=none]
+    \vspace{\topsep}
+\end{refsection}
+
+\cvsect{Voluntary work}
+\entry%
+{06/2015 --}
+{Member}
+{\href{https://collegiumacademicum.de}{Collegium Academicum, Heidelberg}}
+{
+    Student-founded non-profit company building sustainable student housing.
+    We are building an innovative living space for 200 young people.
+    Creating an educational center for holistic self-learning.
+}
+{team building{\|}lead generation{\|}design work}
+
+
+%\cvsect{Teaching experience}
+%\entry%
+%{01/2020 -- 04/2020}
+%{Graduate Teaching Assistant}
+%{\href{https://uva.nl/}{Universiteit van Amsterdam}}
+%{
+%    Assisting with the master level courses \textit{Information Retrieval} and \textit{Fairness, Accountability, Confidentiality and Transparency in AI}.
+%    Teaching tutorial sessions, correcting course work and support students in finishing scientific work and writing.
+%}
+%{}
+
+%\entry%
+%{10/2015 -- 02/2016}
+%{Teaching Assistant}
+%{\href{https://uni-heidelberg.de/en}{University Heidelberg}}
+%{
+%    Assisting with the Bachelor course \textit{Practical Computer Science}.
+%    Teaching in self-prepared weekly tutorial session.
+%}
+%{}
+
+% \begin{minipage}[t]{.4\columnwidth}
+%     \cvsect*{Languages}
+%     \begin{itemize}[left=3.5em]
+%         \item[\textbf{German}] native
+%         \item[\textbf{English}] fluent\\(TOEFL 112/120)
+%         % \item[\textbf{Persian}] \textit{beginner}
+%         % \item[\textbf{Dutch}] \textit{beginner}
+%     \end{itemize}
+% \end{minipage}
+% \begin{minipage}[t]{.6\columnwidth}
+%     % \cvsect*{Academic references}
+%     % \begin{itemize}
+%     %     \item Prof Dr Efstratios Gavves (QUVA Lab)
+%     %     \item Prof Dr Björn Ommer (Uni Heidelberg)
+%     %     \item Dr Miguel Bautista Martin (Apple Inc)%:\\\href{mailto:mbautistamartin@apple.com}{mbautistamartin@apple.com}
+%     %     \item Maximilian Ilse (AMLab)%:\\\href{mailto:M.Ilse@uva.nl}{M.Ilse@uva.nl}
+%     % \end{itemize}
+%     % \cvsect*{Personal interests}
+%     % \begin{itemize}
+%     %     \item Climbing
+%     %     \item Mountaineering
+%     %     \item Electronic music production
+%     % \end{itemize}
+% \end{minipage}
+
+\end{multicols*}
+\end{document}
